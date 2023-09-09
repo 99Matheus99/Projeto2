@@ -8,15 +8,12 @@ class Pessoa:
     
     #métodos da minha classe(todos os métodos devem possuir Self)
     def eh_maior(Self): 
-        if Pessoa1.idade >= 18:
-            return True
-        else:
-            return False
+        return Self.idade >= 18 # Self.idade, é a variável idade que está dentro do meu objeto
     def imc(Self):
-        imc = Pessoa1.peso / (Pessoa1.altura * Pessoa1.altura)
+        imc = Self.peso / (Self.altura * Self.altura)
         return imc
     def imc_longo(Self):
-        imc = Pessoa1.peso / (Pessoa1.altura * Pessoa1.altura)
+        imc = Self.peso / (Self.altura * Self.altura)
         if 18 <= imc < 25:
             return "Peso normal"
         elif 25 <= imc < 30:
@@ -27,11 +24,11 @@ class Pessoa:
             return "Obesidade Grau 2"
         else:
             return "obesidade Grau 3"
-        
-
+    def apresentar(Self):
+        print(f'Olá! Eu sou {Self.nome} e tenho {Self.idade} anos!')
 #teste da função(será apagado)
 Pessoa1 = Pessoa("Matheus", 21, 1.60, 60)
-
 print(Pessoa1.eh_maior())
 print(Pessoa1.imc())
 print(Pessoa1.imc_longo())
+Pessoa1.apresentar()
