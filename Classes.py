@@ -5,4 +5,14 @@ class Pessoa:
         Self.idade = idade
         Self.altura = altura
         Self.peso = peso
-        
+    
+    #métodos da minha classe(todos os métodos devem possuir Self)
+    def eh_maior(Self):
+        if Pessoa1.idade >= 18:
+            return True
+        else:
+            return False
+
+Pessoa1 = Pessoa("Matheus", 21, 1.60, 60)
+
+Pessoa1.eh_maior()
