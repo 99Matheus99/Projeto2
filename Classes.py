@@ -1,10 +1,11 @@
 class Pessoa:
-    def __init__(Self, nome, idade, altura, peso): # função construtora da minha classe
+    def __init__(Self, nome, idade, altura, peso, nascimento): # função construtora da minha classe
         #aqui vão ficar os parâmetros da minha classe
         Self.nome = nome
         Self.idade = idade
         Self.altura = altura
         Self.peso = peso
+        Self.nascimento = nascimento
     
     #métodos da minha classe(todos os métodos devem possuir Self)
     def eh_maior(Self): 
@@ -36,17 +37,3 @@ class Pessoa:
             print(f'{Self.nome} é mais novo do que essa idade!')
         else:
             print(f'{Self.nome} possui esta idade')
-#teste da função(será apagado)
-Pessoa1 = Pessoa('fulano', 21, 1.60, 60)
-print('É maior de idade? ', Pessoa1.eh_maior())
-print(f'Seu IMC é {Pessoa1.imc():.1f}')
-print(f'Assim, você está com {Pessoa1.imc_longo()}')
-Pessoa1.apresentar()
-Pessoa1.comparar_idade(21)
-print('')
-Pessoa2 = Pessoa('ciclano', 17, 1.87, 99)
-print('É maior de idade? ', Pessoa2.eh_maior())
-print(f'Seu IMC é {Pessoa2.imc():.1f}')
-print(f'Assim, você está com {Pessoa2.imc_longo()}')
-Pessoa2.apresentar()
-Pessoa2.comparar_idade(21)
