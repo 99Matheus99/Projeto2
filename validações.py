@@ -35,9 +35,3 @@ while True:
         break
     else:
         print('ENTRADA INVÁLIDA! Digite apenas números inteiros')
-
-
-
-
-
-#Pessoa1 = Pessoa(nome, idade, altura, peso, nascimento)
