@@ -3,20 +3,24 @@ import re
 nome = ''
 idade = altura = peso = nascimento = 0
 while True:
-    print('---menu---')
+    print('-'*10, 'menu', '-'*10)
     print('(1) MOSTRAR PESSOA CADASTRADA')
     print('(2) EDITAR PESSOA / CADASTRAR PESSOA')
     print('(3) SAIR DO PROGRAMA')
+    print('-'*26)
     escolha = int(input('Escolha uma das opções: '))
     if escolha == 1 :
         if idade == 0:
-            print('Não há dados cadastrados!')
+            print('\n\033[31mNão há dados cadastrados!\033[m\n') # coloco a cor no terminal para vermelho
         else:
+            # aqui, coloquei todos nessas linhas na cor amarelo
+            print('\033[33m') 
             print(f'Nome: {nome}')
             print(f'idade: {idade}')
             print(f'altura: {altura}')
             print(f'peso: {peso}')
             print(f'nascimento: {nascimento}')
+            print('\033[m')
     if escolha == 2:
         while True:
             nome = input('Digite seu nome: ')
