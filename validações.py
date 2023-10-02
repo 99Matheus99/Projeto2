@@ -1,4 +1,4 @@
-from classes import Pessoa
+from Classes import Pessoa
 import re
 while True:
     nome = input('Digite seu nome: ')
@@ -35,3 +35,17 @@ while True:
         break
     else:
         print('ENTRADA INVÁLIDA! Digite apenas números inteiros')
+while True:
+    print('---menu---')
+    print('(1) MOSTRAR PESSOA CADASTRADA')
+    print('(2) EDITAR PESSOA CADASTRADA')
+    print('(3) SAIR DO PROGRAMA')
+    escolha = int(input('Escolha uma das opções: '))
+    if escolha == 1:
+        print(f'Nome: {nome}')
+        print(f'idade: {idade}')
+        print(f'altura: {altura}')
+        print(f'peso: {peso}')
+        print(f'nascimento: {nascimento}')
+    if escolha == 3:
+        break
