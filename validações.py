@@ -1,7 +1,6 @@
 from Classes import Pessoa
+import os
 import re
-nome = ''
-idade = altura = peso = nascimento = 0
 while True:
     print('-'*10, 'menu', '-'*10)
     print('(1) MOSTRAR PESSOA CADASTRADA')
@@ -10,17 +9,15 @@ while True:
     print('-'*26)
     escolha = int(input('Escolha uma das opções: '))
     if escolha == 1 :
-        if idade == 0:
-            print('\n\033[31mNão há dados cadastrados!\033[m\n') # coloco a cor no terminal para vermelho
-        else:
-            # aqui, coloquei todos nessas linhas na cor amarelo
-            print('\033[33m') 
-            print(f'Nome: {nome}')
-            print(f'idade: {idade}')
-            print(f'altura: {altura}')
-            print(f'peso: {peso}')
-            print(f'nascimento: {nascimento}')
-            print('\033[m')
+        try:
+            with open('arquivo.txt', mode='r', encoding='utf-8') as arquivo:
+                 # através da função os, vejo o status do meu arquivo, com o atributo de tamanho
+                if os.stat('arquivo.txt').st_size == 0:  # caso esse tamanho seja zero, o arquivo está vazio
+                    print('NÃO HÁ DADOS CADASTRADOS!')
+                for linha in arquivo:
+                    print(f'\033[33m{linha.strip()}\033[m') # cor amarela
+        except FileNotFoundError:
+            print('ARQUIVO NÃO ENCONTRADO!')       
     if escolha == 2:
         while True:
             nome = input('Digite seu nome: ')
@@ -57,6 +54,13 @@ while True:
                 break
             else:
                 print('ENTRADA INVÁLIDA! Digite apenas números inteiros')
-        print('Dados cadastrados com sucesso!')
+        with open('arquivo.txt', mode='w', encoding='utf-8') as arquivo:
+            arquivo.write(f'nome: {str(nome)}\n')
+            arquivo.write(f'idade: {str(idade)}\n')
+            arquivo.write(f'altura: {str(altura)}\n')
+            arquivo.write(f'peso: {str(peso)}\n')
+            arquivo.write(f'nascimento: {str(nascimento)}\n')
+        print('\033[32mDados cadastrados com sucesso!\033[m') # cor verde
     if escolha == 3:
+        print('Saindo...')
         break
