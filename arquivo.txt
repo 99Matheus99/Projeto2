@@ -1,5 +1,0 @@
-nome: zezinho
-idade: 45
-altura: 1.78
-peso: 77.0
-nascimento: 25/08/1977
