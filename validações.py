@@ -14,8 +14,11 @@ while True:
     print('-'*26)
     escolha = int(input('Escolha uma das opções: '))
     if escolha == 1 :
-        print(df)
-    if escolha == 2:
+        if df.empty:
+            print('\033[31mNenhuma pessoa foi cadastrada, caso deseje, digite (2)\033[m\n') # vermelho
+        else:
+            print(df)
+    elif escolha == 2:
         while True:
             nome = input('Digite seu nome: ')
             # no código de baixo, eu pego basicamente qualquer letra maiúscula, minúscula, com acentos, espaço em branco e com ponto no final
@@ -58,6 +61,6 @@ while True:
                 print('ENTRADA INVÁLIDA! Digite apenas números inteiros')
         df.to_json('dados.json', force_ascii=False, orient='records') # salvo essas alterações no meu arquivo
         print('\033[32mDados cadastrados com sucesso!\033[m') # cor verde
-    if escolha == 3:
+    elif escolha == 3:
         print('Saindo...')
         break
